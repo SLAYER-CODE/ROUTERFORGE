@@ -1,0 +1,58 @@
+body {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.brand-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    color: #198754;
+}
+
+.card {
+    border-color: #e1e5e9;
+}
+
+.card h2,
+.card h3 {
+    color: #212529;
+}
+
+.precio {
+    color: #198754;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.hero {
+    background-color: #f1f3f5;
+}
+
+.testimonio {
+    border-left: 3px solid #198754;
+    padding-left: 14px;
+}
+
+.plan-destacado {
+    border-color: #198754;
+    border-width: 2px;
+}
+
+.table th {
+    white-space: nowrap;
+}
+
+footer {
+    font-size: 14px;
+}
+
+#tabla-solicitudes td,
+#tabla-carrito td {
+    font-size: 14px;
+}

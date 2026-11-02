@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de firmwares OpenWrt de RouterForge con precios y compra en línea.">
+    <title>RouterForge · Catálogo</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1114'/%3E%3Crect x='7' y='13' width='18' height='9' rx='2' fill='none' stroke='%2358d68d' stroke-width='2'/%3E%3Cpath d='M10 17.5h2M15 17.5h2M21 17.5h1' stroke='%235b9dff' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M10 13V9M22 13V9' stroke='%2358d68d' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <rect x="3" y="10" width="18" height="8" rx="2" />
+                    <path d="M7 14h.01M10 14h.01M17 14h2" />
+                    <path d="M7 10V7M17 10V7" />
+                </svg>
+                Router<span class="text-success">Forge</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Mostrar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="funcionalidades.html">Funciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compatibilidad.html">Compatibilidad</a></li>
+                    <li class="nav-item"><a class="nav-link" href="documentacion.html">Documentación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="subir.html">Subir firmware</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">Carrito <span class="badge text-bg-success carrito-contador">0</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <h1 class="mb-3">Catálogo</h1>
+        <p class="text-muted">
+            Elige tu modelo y añade el firmware al carrito. Cada build se prepara según
+            la memoria y la arquitectura del router.
+        </p>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="buscador-catalogo" class="form-label">Buscar firmware</label>
+                <input type="search" class="form-control" id="buscador-catalogo" placeholder="Modelo, marca o función...">
+                <div class="form-text" id="resultado-catalogo">6 productos</div>
+            </div>
+        </div>
+
+        <div id="aviso-carrito" class="alert alert-success d-none">
+            Producto añadido al carrito. <a href="carrito.html" class="alert-link">Ir al carrito</a>.
+        </div>
+
+        <div class="row g-4" id="lista-productos">
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h2 class="h5 mb-0">Archer C7 v5</h2>
+                            <span class="badge text-bg-success">Compatible</span>
+                        </div>
+                        <p class="text-muted small mb-2">TP-Link · ramips/mt7620</p>
+                        <p class="small mb-2"><strong>RAM:</strong> 128 MB · <strong>Flash:</strong> 16 MB · <strong>OpenWrt:</strong> 23.05</p>
+                        <p class="mb-2">Build ligera con archivos, DNS local y VPN para routers con poca flash.</p>
+                        <p class="mb-3">
+                            <span class="badge text-bg-light">Samba</span>
+                            <span class="badge text-bg-light">SFTP</span>
+                            <span class="badge text-bg-light">DNS local</span>
+                            <span class="badge text-bg-light">WireGuard</span>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio">$19</span>
+                            <button type="button" class="btn btn-success btn-sm" data-agregar data-id="archer-c7" data-nombre="Archer C7 v5" data-precio="19">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h2 class="h5 mb-0">Mi Router 4A Gigabit</h2>
+                            <span class="badge text-bg-warning">Parcial</span>
+                        </div>
+                        <p class="text-muted small mb-2">Xiaomi · ramips/mt7621</p>
+                        <p class="small mb-2"><strong>RAM:</strong> 128 MB · <strong>Flash:</strong> 16 MB · <strong>OpenWrt:</strong> 23.05</p>
+                        <p class="mb-2">Perfil compacto para compartir archivos y publicar una página en la red local.</p>
+                        <p class="mb-3">
+                            <span class="badge text-bg-light">Samba</span>
+                            <span class="badge text-bg-light">Servidor HTTP</span>
+                            <span class="badge text-bg-light">DDNS local</span>
+                            <span class="badge text-bg-light">WireGuard</span>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio">$22</span>
+                            <button type="button" class="btn btn-success btn-sm" data-agregar data-id="mi-4a" data-nombre="Mi Router 4A Gigabit" data-precio="22">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h2 class="h5 mb-0">GL-MT3000 (Beryl AX)</h2>
+                            <span class="badge text-bg-success">Compatible</span>
+                        </div>
+                        <p class="text-muted small mb-2">GL.iNet · mediatek/filogic</p>
+                        <p class="small mb-2"><strong>RAM:</strong> 256 MB · <strong>Flash:</strong> 256 MB · <strong>OpenWrt:</strong> 24.10</p>
+                        <p class="mb-2">Perfil de viaje con VPN, filtrado DNS y almacenamiento por USB.</p>
+                        <p class="mb-3">
+                            <span class="badge text-bg-light">WireGuard</span>
+                            <span class="badge text-bg-light">AdGuard Home</span>
+                            <span class="badge text-bg-light">Samba</span>
+                            <span class="badge text-bg-light">DNS cifrado</span>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio">$34</span>
+                            <button type="button" class="btn btn-success btn-sm" data-agregar data-id="mt3000" data-nombre="GL-MT3000" data-precio="34">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h2 class="h5 mb-0">AX3000T</h2>
+                            <span class="badge text-bg-success">Compatible</span>
+                        </div>
+                        <p class="text-muted small mb-2">Xiaomi · mediatek/filogic</p>
+                        <p class="small mb-2"><strong>RAM:</strong> 256 MB · <strong>Flash:</strong> 128 MB · <strong>OpenWrt:</strong> 24.10</p>
+                        <p class="mb-2">Perfil moderno con VPN, archivos compartidos y administración desde LuCI.</p>
+                        <p class="mb-3">
+                            <span class="badge text-bg-light">WireGuard</span>
+                            <span class="badge text-bg-light">Samba</span>
+                            <span class="badge text-bg-light">LuCI</span>
+                            <span class="badge text-bg-light">Cortafuegos</span>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio">$29</span>
+                            <button type="button" class="btn btn-success btn-sm" data-agregar data-id="ax3000t" data-nombre="AX3000T" data-precio="29">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h2 class="h5 mb-0">RT-AC68U</h2>
+                            <span class="badge text-bg-success">Compatible</span>
+                        </div>
+                        <p class="text-muted small mb-2">ASUS · bcm53xx</p>
+                        <p class="small mb-2"><strong>RAM:</strong> 256 MB · <strong>Flash:</strong> 128 MB · <strong>OpenWrt:</strong> 23.05</p>
+                        <p class="mb-2">Build para oficina con VPN, archivos compartidos y servidor multimedia.</p>
+                        <p class="mb-3">
+                            <span class="badge text-bg-light">VPN</span>
+                            <span class="badge text-bg-light">Samba</span>
+                            <span class="badge text-bg-light">DLNA</span>
+                            <span class="badge text-bg-light">Cortafuegos</span>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio">$27</span>
+                            <button type="button" class="btn btn-success btn-sm" data-agregar data-id="rt-ac68u" data-nombre="RT-AC68U" data-precio="27">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h2 class="h5 mb-0">WRT3200ACM</h2>
+                            <span class="badge text-bg-success">Compatible</span>
+                        </div>
+                        <p class="text-muted small mb-2">Linksys · mvebu/cortexa9</p>
+                        <p class="small mb-2"><strong>RAM:</strong> 512 MB · <strong>Flash:</strong> 256 MB · <strong>OpenWrt:</strong> 23.05</p>
+                        <p class="mb-2">Build avanzada para oficinas con muchos equipos y servicios simultáneos.</p>
+                        <p class="mb-3">
+                            <span class="badge text-bg-light">VPN</span>
+                            <span class="badge text-bg-light">Samba</span>
+                            <span class="badge text-bg-light">AdBlock</span>
+                            <span class="badge text-bg-light">VLAN</span>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio">$39</span>
+                            <button type="button" class="btn btn-success btn-sm" data-agregar data-id="wrt3200acm" data-nombre="WRT3200ACM" data-precio="39">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sin-productos" class="alert alert-warning d-none">
+            No se encontraron productos con esa búsqueda.
+        </div>
+
+        <div class="alert alert-secondary mt-4 mb-0">
+            ¿No encuentras tu modelo? Podemos preparar una <a href="subir.html">build a medida</a>
+            o revisar la <a href="compatibilidad.html">tabla de compatibilidad</a>.
+        </div>
+    </main>
+
+    <footer class="border-top mt-5 py-3 text-center text-muted">
+        <div class="container">
+            <p class="mb-1">© 2026 RouterForge. Firmware OpenWrt a medida.</p>
+            <p class="mb-0 small">Envío digital y soporte técnico especializado.</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

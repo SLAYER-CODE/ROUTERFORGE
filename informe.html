@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informe del proyecto RouterForge: diseño web, tecnologías, estructura del código, interactividad y capturas.">
+    <title>RouterForge · Informe del proyecto</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1114'/%3E%3Crect x='7' y='13' width='18' height='9' rx='2' fill='none' stroke='%2358d68d' stroke-width='2'/%3E%3Cpath d='M10 17.5h2M15 17.5h2M21 17.5h1' stroke='%235b9dff' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M10 13V9M22 13V9' stroke='%2358d68d' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+        }
+        .informe h2 { margin-top: 2rem; }
+        .galeria-item { display: block; }
+    </style>
+</head>
+<body>
+    <header class="border-bottom py-3 mb-4 no-print">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <a class="navbar-brand text-dark mb-0" href="index.html">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <rect x="3" y="10" width="18" height="8" rx="2" />
+                    <path d="M7 14h.01M10 14h.01M17 14h2" />
+                    <path d="M7 10V7M17 10V7" />
+                </svg>
+                Router<span class="text-success">Forge</span>
+            </a>
+            <div class="d-flex gap-2">
+                <a href="index.html" class="btn btn-outline-secondary btn-sm">Volver a la tienda</a>
+                <button type="button" class="btn btn-success btn-sm" onclick="window.print()">Imprimir / PDF</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-4 informe">
+        <h1>Informe del proyecto</h1>
+        <p class="lead mb-1">RouterForge · Tienda de firmwares OpenWrt</p>
+        <p class="text-muted">Desarrollo Web I · 2026</p>
+
+        <div class="card my-4">
+            <div class="card-body">
+                <h2 class="h5 mt-0">Índice</h2>
+                <ol class="mb-0">
+                    <li><a href="#introduccion">Introducción</a></li>
+                    <li><a href="#objetivos">Objetivos</a></li>
+                    <li><a href="#tecnologias">Justificación de las tecnologías</a></li>
+                    <li><a href="#estructura-proyecto">Estructura del proyecto</a></li>
+                    <li><a href="#estructura-codigo">Estructura del código</a></li>
+                    <li><a href="#diseno">Diseño visual y experiencia de usuario</a></li>
+                    <li><a href="#javascript">Interactividad con JavaScript</a></li>
+                    <li><a href="#galeria">Galería de capturas (índice de imágenes)</a></li>
+                    <li><a href="#retos">Retos y soluciones</a></li>
+                    <li><a href="#conclusiones">Conclusiones</a></li>
+                    <li><a href="#mejoras">Mejoras futuras</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <section id="introduccion">
+            <h2>1. Introducción</h2>
+            <p>
+                RouterForge es una tienda web de firmwares personalizados para routers
+                OpenWrt. El sitio permite conocer los modelos compatibles, comparar planes,
+                añadir productos al carrito, registrar pedidos y consultar documentación
+                de instalación y soporte.
+            </p>
+            <p>
+                El proyecto se desarrolló como trabajo del primer curso de Desarrollo Web.
+                La prioridad fue aplicar HTML, CSS y JavaScript de forma clara, con una
+                estructura ordenada, un diseño responsive y un lenguaje comercial propio
+                de una tienda.
+            </p>
+        </section>
+
+        <section id="objetivos">
+            <h2>2. Objetivos</h2>
+            <p><strong>Objetivo general:</strong> diseñar y desarrollar un sitio de ventas funcional, responsive y fácil de mantener.</p>
+            <ul>
+                <li>Aplicar HTML5 semántico y accesible.</li>
+                <li>Usar Bootstrap para el sistema de grillas y los componentes de interfaz.</li>
+                <li>Separar la estructura, los estilos y el comportamiento en archivos distintos.</li>
+                <li>Implementar un carrito y formularios con JavaScript.</li>
+                <li>Documentar las decisiones de diseño y los problemas encontrados.</li>
+            </ul>
+        </section>
+
+        <section id="tecnologias">
+            <h2>3. Justificación de las tecnologías</h2>
+
+            <h3 class="h5 mt-3">HTML5</h3>
+            <p>
+                Se usó HTML5 porque permite una estructura semántica clara con etiquetas
+                como <code>header</code>, <code>nav</code>, <code>main</code>,
+                <code>section</code> y <code>footer</code>. También ofrece formularios
+                nativos con validación y etiquetas <code>label</code>, lo que mejora la
+                accesibilidad. El icono del router se incluyó como SVG dentro del HTML y
+                como favicon vectorial.
+            </p>
+
+            <h3 class="h5 mt-3">Bootstrap 5.3</h3>
+            <p>
+                Bootstrap se eligió por su sistema de grillas responsive y por sus
+                componentes ya probados: navbar, cards, badges, alerts, tablas, formularios,
+                accordion, offcanvas, modal y toast. Esto permitió construir una tienda
+                coherente en menos tiempo y con buen comportamiento en móvil.
+            </p>
+            <p>
+                Los archivos de Bootstrap se guardaron en <code>vendor/</code> para que el
+                sitio no dependa de una conexión a CDN. La desventaja es que el proyecto
+                pesa más; la ventaja es que funciona igual en local y en cualquier hosting
+                estático.
+            </p>
+
+            <h3 class="h5 mt-3">CSS propio</h3>
+            <p>
+                No se reescribió Bootstrap. Solo se creó <code>css/estilo.css</code> para
+                la identidad visual: icono de la marca, color verde de precios y llamadas
+                a la acción, fondo del hero, testimonios y resaltado del plan recomendado.
+                El resto del layout se resolvió con clases utilitarias de Bootstrap.
+            </p>
+
+            <h3 class="h5 mt-3">JavaScript</h3>
+            <p>
+                Se usó JavaScript sin frameworks ni jQuery porque Bootstrap 5 no necesita
+                jQuery y el alcance del proyecto no requiere React ni Vue. Con JavaScript
+                nativo se trabajó con el DOM, eventos, <code>localStorage</code>,
+                <code>JSON</code> y temporizadores.
+            </p>
+            <p>
+                Todo el comportamiento está en <code>js/app.js</code>, dentro de una función
+                autoejecutable (IIFE) para no contaminar el ámbito global. Las funciones
+                están separadas por responsabilidad: carrito, panel lateral, filtros,
+                formularios y contadores.
+            </p>
+
+            <h3 class="h5 mt-3">localStorage</h3>
+            <p>
+                El carrito, los pedidos y las solicitudes se guardan en el almacenamiento
+                local del navegador mediante <code>localStorage</code>. Esto permite que el
+                carrito sobreviva al cambiar de página y que el contador del navbar se
+                mantenga actualizado. En una versión de producción, esta persistencia se
+                sustituiría por una API y una pasarela de pago.
+            </p>
+        </section>
+
+        <section id="estructura-proyecto">
+            <h2>4. Estructura del proyecto</h2>
+            <pre class="bg-light border rounded p-3"><code>NewYow/
+├── index.html
+├── catalogo.html
+├── funcionalidades.html
+├── compatibilidad.html
+├── documentacion.html
+├── subir.html
+├── carrito.html
+├── informe.html
+├── css/
+│   └── estilo.css
+├── js/
+│   └── app.js
+├── vendor/
+│   ├── bootstrap.min.css
+│   └── bootstrap.bundle.min.js
+└── Imagenes/
+    ├── paginainicio.png
+    ├── catalogo.png
+    ├── Funcionesplanes.png
+    ├── Compatibilidad.png
+    ├── Subirfirmware.png
+    ├── estructura.png
+    └── codigovistaso.png</code></pre>
+            <p>
+                La organización sigue la responsabilidad de cada archivo: las páginas HTML
+                están en la raíz, los estilos en <code>css/</code>, el comportamiento en
+                <code>js/</code>, las librerías externas en <code>vendor/</code> y las
+                capturas del proyecto en <code>Imagenes/</code>.
+            </p>
+        </section>
+
+        <section id="estructura-codigo">
+            <h2>5. Estructura del código</h2>
+
+            <h3 class="h5 mt-3">HTML</h3>
+            <p>
+                Cada página repite la misma cabecera y el mismo pie para mantener la
+                navegación coherente. El enlace activo se marca con <code>aria-current</code>.
+                Se usan etiquetas semánticas, textos alternativos en las imágenes y
+                <code>label</code> en todos los campos de formulario.
+            </p>
+            <p>
+                La repetición del navbar y del footer es una decisión consciente: es simple
+                de entender en un primer curso. Como mejora futura se podría generar con
+                JavaScript o con un generador de sitios estáticos.
+            </p>
+
+            <h3 class="h5 mt-3">CSS</h3>
+            <p>
+                El CSS propio es corto y se apoya en Bootstrap. Se definen clases como
+                <code>.brand-icon</code>, <code>.precio</code>, <code>.hero</code>,
+                <code>.testimonio</code> y <code>.plan-destacado</code>. El resto se resuelve
+                con utilidades de Bootstrap: <code>container</code>, <code>row</code>,
+                <code>col-md-*</code>, <code>card</code>, <code>btn</code>,
+                <code>badge</code>, <code>alert</code> y <code>table-responsive</code>.
+            </p>
+
+            <h3 class="h5 mt-3">JavaScript</h3>
+            <p>
+                <code>js/app.js</code> está organizado en bloques:
+            </p>
+            <ul>
+                <li>Funciones auxiliares de almacenamiento, escape de texto y formato de precios y fechas.</li>
+                <li>Estado del carrito: leer, guardar, agregar y calcular totales.</li>
+                <li>Panel lateral del carrito y notificaciones tipo toast.</li>
+                <li>Renderizado de la página del carrito y del formulario de pedido.</li>
+                <li>Filtro con retardo (debounce) del catálogo y filtro de compatibilidad.</li>
+                <li>Formulario de pedido a medida con validación y tabla de pedidos.</li>
+            </ul>
+            <p>
+                La conexión entre HTML y JavaScript se hace con atributos
+                <code>data-*</code>: <code>data-agregar</code>, <code>data-id</code>,
+                <code>data-nombre</code>, <code>data-precio</code>,
+                <code>data-accion</code> y <code>data-panel-quitar</code>. Así se evita
+                escribir JavaScript dentro del HTML.
+            </p>
+        </section>
+
+        <section id="diseno">
+            <h2>6. Diseño visual y experiencia de usuario</h2>
+            <p>
+                La paleta es simple: navbar oscuro, fondo blanco y verde como color de
+                acción. Esa combinación mantiene la lectura cómoda, da contraste a los
+                botones y evita que la tienda parezca recargada.
+            </p>
+            <ul>
+                <li><strong>Tipografía:</strong> pila de fuentes del sistema que trae Bootstrap; jerarquía con <code>display-5</code>, <code>h4</code>, <code>h5</code>, <code>lead</code> y <code>small</code>.</li>
+                <li><strong>Componentes:</strong> cards para productos y planes, badges para compatibilidad, alerts para avisos, tablas para especificaciones y accordion para preguntas frecuentes.</li>
+                <li><strong>Responsive:</strong> grillas con <code>col-md-*</code> y <code>col-lg-*</code>, navbar colapsable y tablas dentro de <code>table-responsive</code>.</li>
+                <li><strong>Accesibilidad:</strong> etiquetas en formularios, <code>aria-current</code> en la navegación, <code>aria-controls</code> en el menú, textos alternativos y foco visible.</li>
+            </ul>
+        </section>
+
+        <section id="javascript">
+            <h2>7. Interactividad con JavaScript</h2>
+            <p>
+                Además de lo básico, se agregaron interacciones que demuestran manejo de
+                estado, eventos y componentes de Bootstrap.
+            </p>
+
+            <h3 class="h5 mt-3">Carrito y panel lateral</h3>
+            <p>
+                Al pulsar “Añadir al carrito”, el producto se guarda en
+                <code>localStorage</code> y el contador del navbar se actualiza. El panel
+                lateral se genera dinámicamente con JavaScript y se abre con la API
+                <code>Offcanvas</code> de Bootstrap. Los botones “Quitar” usan delegación
+                de eventos, por lo que funcionan aunque el contenido se vuelva a dibujar.
+            </p>
+
+            <h3 class="h5 mt-3">Notificaciones toast</h3>
+            <p>
+                Cada vez que se agrega o quita un producto se muestra un aviso breve con el
+                componente <code>Toast</code>. El elemento se elimina cuando termina la
+                animación para no acumular nodos en el documento.
+            </p>
+
+            <h3 class="h5 mt-3">Búsqueda con retardo (debounce)</h3>
+            <p>
+                En el catálogo, el filtro no se ejecuta en cada tecla de inmediato: se
+                espera un pequeño tiempo para evitar trabajo innecesario. Es una técnica
+                sencilla de optimización.
+            </p>
+            <pre class="bg-light border rounded p-3"><code>var temporizador;
+buscador.addEventListener("input", function () {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(filtrarCatalogo, 200);
+});</code></pre>
+
+            <h3 class="h5 mt-3">Filtros en tablas y tarjetas</h3>
+            <p>
+                El buscador de compatibilidad recorre las filas de la tabla y oculta las
+                que no coinciden con el texto. El catálogo hace lo mismo con las tarjetas
+                de producto y muestra un mensaje cuando no hay resultados.
+            </p>
+
+            <h3 class="h5 mt-3">Formularios y pedidos</h3>
+            <p>
+                El formulario de “Subir firmware” valida nombre, modelo y archivo, comprueba
+                el tamaño máximo y simula un envío con <code>setTimeout</code>. Después
+                guarda el pedido y lo muestra en una tabla. El carrito también valida los
+                datos del comprador antes de confirmar el pedido.
+            </p>
+
+            <h3 class="h5 mt-3">Visor de imágenes y botón de impresión</h3>
+            <p>
+                En este informe, las capturas se abren en un modal de Bootstrap. El visor
+                usa atributos <code>data-imagen</code>, <code>data-titulo</code> y
+                <code>data-texto</code> para no duplicar el código de cada imagen. También
+                se agregó un botón que llama a <code>window.print()</code> para guardar el
+                informe como PDF.
+            </p>
+        </section>
+
+        <section id="galeria">
+            <h2>8. Galería de capturas (índice de imágenes)</h2>
+            <p class="text-muted">
+                Haz clic en cualquier imagen para verla ampliada. Cada captura muestra una
+                parte de la tienda y permite explicar las decisiones de diseño y el uso de
+                Bootstrap.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/paginainicio.png" class="galeria-item" data-imagen="Imagenes/paginainicio.png" data-titulo="Página de inicio" data-texto="Inicio de RouterForge: hero de venta, tarjeta de compra protegida, beneficios, productos destacados, pasos, testimonios y llamada a la acción.">
+                            <img src="Imagenes/paginainicio.png" class="figure-img img-fluid rounded border" alt="Captura de la página de inicio de RouterForge" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>paginainicio.png.</strong> Muestra la portada de la tienda:
+                            el mensaje principal, el precio de entrada, los botones de compra,
+                            la tarjeta de “Compra protegida”, los beneficios, los productos
+                            destacados, los pasos de compra y los testimonios. Aquí se aprecia
+                            la grilla de Bootstrap y el uso de cards y badges.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/catalogo.png" class="galeria-item" data-imagen="Imagenes/catalogo.png" data-titulo="Catálogo de productos" data-texto="Catálogo con seis firmwares, precios, especificaciones, badges de compatibilidad y botones para añadir al carrito.">
+                            <img src="Imagenes/catalogo.png" class="figure-img img-fluid rounded border" alt="Captura del catálogo de firmwares" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>catalogo.png.</strong> Presenta seis productos con precio,
+                            arquitectura, memoria, funciones y estado de compatibilidad. Se
+                            usan columnas responsive (<code>col-md-6 col-xl-4</code>), cards,
+                            badges y botones de acción. Es la pantalla principal de venta.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/Funcionesplanes.png" class="galeria-item" data-imagen="Imagenes/Funcionesplanes.png" data-titulo="Funciones y planes" data-texto="Planes Básico, Completo y Avanzado con precios, lista de beneficios y tabla de funciones con paquetes incluidos.">
+                            <img src="Imagenes/Funcionesplanes.png" class="figure-img img-fluid rounded border" alt="Captura de la página de funciones y planes" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>Funcionesplanes.png.</strong> Explica la oferta con tres
+                            planes y una tabla de funciones. Bootstrap aporta las cards, las
+                            listas, los badges y la tabla; el plan “Completo” se resalta con
+                            una clase propia para guiar la decisión de compra.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/Compatibilidad.png" class="galeria-item" data-imagen="Imagenes/Compatibilidad.png" data-titulo="Compatibilidad" data-texto="Tabla de routers con fabricante, modelo, arquitectura, RAM, flash y estado, acompañada de un buscador en vivo.">
+                            <img src="Imagenes/Compatibilidad.png" class="figure-img img-fluid rounded border" alt="Captura de la tabla de compatibilidad" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>Compatibilidad.png.</strong> Reúne los modelos disponibles
+                            en una tabla con buscador. El uso de
+                            <code>table-responsive</code> evita que la tabla se rompa en
+                            móvil, y los badges indican el estado de cada modelo.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/Subirfirmware.png" class="galeria-item" data-imagen="Imagenes/Subirfirmware.png" data-titulo="Subir firmware" data-texto="Formulario para pedir una build a medida con nombre, modelo, plan y archivo, junto a la tabla de pedidos recibidos.">
+                            <img src="Imagenes/Subirfirmware.png" class="figure-img img-fluid rounded border" alt="Captura de la página para subir firmware" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>Subirfirmware.png.</strong> Muestra el formulario de pedido
+                            personalizado y la tabla de pedidos. Se aplican formularios de
+                            Bootstrap, validación con JavaScript y mensajes de estado.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/estructura.png" class="galeria-item" data-imagen="Imagenes/estructura.png" data-titulo="Estructura del proyecto" data-texto="Vista de carpetas y archivos: páginas HTML en la raíz, css, js, vendor e Imagenes.">
+                            <img src="Imagenes/estructura.png" class="figure-img img-fluid rounded border" alt="Captura de la estructura de carpetas del proyecto" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>estructura.png.</strong> Evidencia la organización del
+                            proyecto: páginas en la raíz, estilos en <code>css/</code>,
+                            comportamiento en <code>js/</code>, librerías en
+                            <code>vendor/</code> y capturas en <code>Imagenes/</code>. Esta
+                            separación facilita el mantenimiento.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-6">
+                    <figure class="figure h-100">
+                        <a href="Imagenes/codigovistaso.png" class="galeria-item" data-imagen="Imagenes/codigovistaso.png" data-titulo="Código en el editor" data-texto="Captura del código HTML y JavaScript en el editor, donde se observa la separación de responsabilidades y el uso de atributos data-*.">
+                            <img src="Imagenes/codigovistaso.png" class="figure-img img-fluid rounded border" alt="Captura del código del proyecto en el editor" loading="lazy">
+                        </a>
+                        <figcaption class="figure-caption">
+                            <strong>codigovistaso.png.</strong> Muestra el código en el editor.
+                            Se aprecia la separación entre estructura y comportamiento, el uso
+                            de atributos <code>data-*</code> y la organización de
+                            <code>app.js</code> en funciones pequeñas.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="retos">
+            <h2>9. Retos y soluciones</h2>
+            <ul>
+                <li>
+                    <strong>Cambiar el enfoque de demo técnica a tienda.</strong> Se
+                    eliminaron los textos técnicos de demostración y se reescribió el
+                    contenido con lenguaje comercial, manteniendo la misma base técnica.
+                </li>
+                <li>
+                    <strong>Mantener el navbar y el footer en siete páginas.</strong> Se
+                    repitió el mismo bloque en cada HTML para que el proyecto sea fácil de
+                    leer. Como mejora futura se podría generar con JavaScript o con un
+                    generador de sitios estáticos.
+                </li>
+                <li>
+                    <strong>Carrito persistente entre páginas.</strong> Se resolvió con
+                    <code>localStorage</code> y conversión a JSON, con <code>try/catch</code>
+                    para evitar errores si el dato guardado está dañado.
+                </li>
+                <li>
+                    <strong>Contador del carrito en todas las páginas.</strong> Una función
+                    común actualiza todos los elementos con la clase
+                    <code>carrito-contador</code>, y el evento <code>storage</code> permite
+                    sincronizar pestañas abiertas.
+                </li>
+                <li>
+                    <strong>Evitar duplicar el panel lateral en cada HTML.</strong> El
+                    offcanvas se genera desde JavaScript y se inserta en el documento al
+                    cargar la página.
+                </li>
+                <li>
+                    <strong>Tablas en pantallas pequeñas.</strong> Se envolvieron en
+                    <code>table-responsive</code> para permitir desplazamiento horizontal sin
+                    romper el layout.
+                </li>
+                <li>
+                    <strong>Búsquedas fluidas.</strong> El catálogo usa debounce para no
+                    filtrar en cada pulsación, y la tabla de compatibilidad actualiza los
+                    resultados en vivo.
+                </li>
+                <li>
+                    <strong>Rutas y mayúsculas.</strong> La carpeta de imágenes se llama
+                    <code>Imagenes</code> con mayúscula inicial; en Linux eso importa y se
+                    usó la ruta exacta en todas las referencias.
+                </li>
+                <li>
+                    <strong>Accesibilidad.</strong> Se añadieron etiquetas, textos
+                    alternativos, <code>aria-current</code>, <code>aria-controls</code> y
+                    mensajes con <code>aria-live</code> en las notificaciones.
+                </li>
+            </ul>
+        </section>
+
+        <section id="conclusiones">
+            <h2>10. Conclusiones</h2>
+            <p>
+                Se logró una tienda completa y responsive con siete páginas, un carrito
+                funcional, formularios validados, filtros de búsqueda y un informe con
+                capturas. El proyecto permitió aplicar los fundamentos de HTML, CSS y
+                JavaScript y comprender cómo Bootstrap acelera el desarrollo sin impedir
+                la personalización.
+            </p>
+            <p>
+                El resultado es un sitio simple, coherente y fácil de ampliar. La
+                experiencia principal fue entender que una buena interfaz no depende de
+                muchos efectos, sino de una estructura clara, un lenguaje consistente y
+                componentes que el usuario ya reconoce.
+            </p>
+        </section>
+
+        <section id="mejoras">
+            <h2>11. Mejoras futuras</h2>
+            <ul>
+                <li>Conectar el carrito y los pedidos con una API y una pasarela de pago.</li>
+                <li>Añadir páginas de detalle de producto y un panel de administración.</li>
+                <li>Incorporar cuentas de usuario e historial de pedidos.</li>
+                <li>Optimizar las imágenes y aplicar carga diferida en todo el sitio.</li>
+                <li>Agregar pruebas automatizadas y una revisión de accesibilidad.</li>
+                <li>Unificar navbar y footer con un generador de sitios estáticos.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="border-top mt-5 py-3 text-center text-muted no-print">
+        <div class="container">
+            <p class="mb-1">© 2026 RouterForge. Informe del proyecto.</p>
+            <p class="mb-0 small"><a href="index.html">Volver a la tienda</a></p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalImagen" tabindex="-1" aria-labelledby="modalImagenTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalImagenTitulo">Imagen</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" alt="" id="modalImagenSrc" class="img-fluid rounded border">
+                    <p class="mt-3 mb-0 text-muted" id="modalImagenTexto"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll(".galeria-item").forEach(function (enlace) {
+            enlace.addEventListener("click", function (evento) {
+                evento.preventDefault();
+
+                var modalElemento = document.getElementById("modalImagen");
+                var imagen = document.getElementById("modalImagenSrc");
+                var titulo = enlace.getAttribute("data-titulo");
+
+                document.getElementById("modalImagenTitulo").textContent = titulo;
+                document.getElementById("modalImagenTexto").textContent = enlace.getAttribute("data-texto");
+                imagen.src = enlace.getAttribute("data-imagen");
+                imagen.alt = titulo;
+
+                bootstrap.Modal.getOrCreateInstance(modalElemento).show();
+            });
+        });
+    </script>
+</body>
+</html>

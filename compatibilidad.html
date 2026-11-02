@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta qué routers son compatibles con los firmwares OpenWrt de RouterForge.">
+    <title>RouterForge · Compatibilidad</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1114'/%3E%3Crect x='7' y='13' width='18' height='9' rx='2' fill='none' stroke='%2358d68d' stroke-width='2'/%3E%3Cpath d='M10 17.5h2M15 17.5h2M21 17.5h1' stroke='%235b9dff' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M10 13V9M22 13V9' stroke='%2358d68d' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <rect x="3" y="10" width="18" height="8" rx="2" />
+                    <path d="M7 14h.01M10 14h.01M17 14h2" />
+                    <path d="M7 10V7M17 10V7" />
+                </svg>
+                Router<span class="text-success">Forge</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Mostrar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="funcionalidades.html">Funciones</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="compatibilidad.html">Compatibilidad</a></li>
+                    <li class="nav-item"><a class="nav-link" href="documentacion.html">Documentación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="subir.html">Subir firmware</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">Carrito <span class="badge text-bg-success carrito-contador">0</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <h1 class="mb-3">Compatibilidad</h1>
+        <p class="text-muted">
+            Consulta qué modelos tienen firmware disponible. Si tu router no aparece,
+            podemos preparar una build a medida.
+        </p>
+
+        <div class="alert alert-info">
+            Comprueba la versión de hardware en la etiqueta del router. La misma marca
+            y modelo puede cambiar de arquitectura entre revisiones.
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="buscador-compatibilidad" class="form-label">Buscar modelo o fabricante</label>
+                <input type="search" class="form-control" id="buscador-compatibilidad" placeholder="Xiaomi, Archer, mt7621...">
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle" id="tabla-compatibilidad">
+                <thead>
+                    <tr>
+                        <th scope="col">Fabricante</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Arquitectura</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">Flash</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TP-Link</td>
+                        <td>Archer C7 v5</td>
+                        <td><code>ramips/mt7620</code></td>
+                        <td>128 MB</td>
+                        <td>16 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>TP-Link</td>
+                        <td>Archer AX23 v1</td>
+                        <td><code>mediatek/filogic</code></td>
+                        <td>256 MB</td>
+                        <td>16 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>TP-Link</td>
+                        <td>Archer C50 v4</td>
+                        <td><code>ramips/mt7628</code></td>
+                        <td>64 MB</td>
+                        <td>8 MB</td>
+                        <td><span class="badge text-bg-secondary">En revisión</span></td>
+                    </tr>
+                    <tr>
+                        <td>Xiaomi</td>
+                        <td>Mi Router 4A Gigabit</td>
+                        <td><code>ramips/mt7621</code></td>
+                        <td>128 MB</td>
+                        <td>16 MB</td>
+                        <td><span class="badge text-bg-warning">Parcial</span></td>
+                    </tr>
+                    <tr>
+                        <td>Xiaomi</td>
+                        <td>AX3000T</td>
+                        <td><code>mediatek/filogic</code></td>
+                        <td>256 MB</td>
+                        <td>128 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>Xiaomi</td>
+                        <td>Mi Router 3G</td>
+                        <td><code>ramips/mt7621</code></td>
+                        <td>128 MB</td>
+                        <td>128 MB</td>
+                        <td><span class="badge text-bg-secondary">En revisión</span></td>
+                    </tr>
+                    <tr>
+                        <td>GL.iNet</td>
+                        <td>GL-MT3000</td>
+                        <td><code>mediatek/filogic</code></td>
+                        <td>256 MB</td>
+                        <td>256 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>GL.iNet</td>
+                        <td>GL-A1300</td>
+                        <td><code>ipq40xx</code></td>
+                        <td>256 MB</td>
+                        <td>128 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>GL.iNet</td>
+                        <td>GL-AR750S</td>
+                        <td><code>ath79</code></td>
+                        <td>128 MB</td>
+                        <td>128 MB</td>
+                        <td><span class="badge text-bg-secondary">En revisión</span></td>
+                    </tr>
+                    <tr>
+                        <td>ASUS</td>
+                        <td>RT-AC68U</td>
+                        <td><code>bcm53xx</code></td>
+                        <td>256 MB</td>
+                        <td>128 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>Linksys</td>
+                        <td>WRT3200ACM</td>
+                        <td><code>mvebu/cortexa9</code></td>
+                        <td>512 MB</td>
+                        <td>256 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                    <tr>
+                        <td>Netgear</td>
+                        <td>Nighthawk R7000</td>
+                        <td><code>bcm53xx</code></td>
+                        <td>256 MB</td>
+                        <td>128 MB</td>
+                        <td><span class="badge text-bg-success">Compatible</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p id="sin-resultados" class="text-muted d-none">No se encontraron modelos con esa búsqueda.</p>
+
+        <div class="alert alert-secondary mt-4 mb-0">
+            ¿Tu router no aparece? <a href="subir.html">Pide una build a medida</a> y revisamos
+            la arquitectura y la memoria disponibles.
+        </div>
+    </main>
+
+    <footer class="border-top mt-5 py-3 text-center text-muted">
+        <div class="container">
+            <p class="mb-1">© 2026 RouterForge. Firmware OpenWrt a medida.</p>
+            <p class="mb-0 small">Envío digital y soporte técnico especializado.</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
